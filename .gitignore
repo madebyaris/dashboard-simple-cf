@@ -1,0 +1,7 @@
+node_modules/
+frontend/dist/
+backend/wrangler.toml
+frontend/wrangler.toml
+.wrangler/
+.env*
+.DS_Store
