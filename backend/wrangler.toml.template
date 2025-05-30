@@ -6,6 +6,7 @@ compatibility_flags = ["nodejs_compat"]
 [vars]
 JWT_SECRET = "your-jwt-secret-here-change-in-production"
 BCRYPT_ROUNDS = "10"
+ALLOWED_ORIGINS = "https://your-frontend-domain.pages.dev,http://localhost:3000,http://localhost:3001"
 
 [[d1_databases]]
 binding = "DB"
