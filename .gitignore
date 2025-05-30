@@ -5,3 +5,4 @@ frontend/wrangler.toml
 .wrangler/
 .env*
 .DS_Store
+test-cors.sh
