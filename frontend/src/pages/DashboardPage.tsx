@@ -42,11 +42,11 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Welcome Section */}
       <div className="bg-white overflow-hidden shadow rounded-lg">
-        <div className="px-4 py-5 sm:p-6">
-          <h1 className="text-2xl font-bold text-gray-900">
+        <div className="px-4 py-4 sm:px-6 sm:py-5">
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
             Welcome back, {user?.name}!
           </h1>
           <p className="mt-1 text-sm text-gray-500">
@@ -57,20 +57,20 @@ export default function DashboardPage() {
 
       {/* Stats Overview */}
       {summary && (
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:gap-5">
           {/* Total Income */}
           <div className="bg-white overflow-hidden shadow rounded-lg">
-            <div className="p-5">
+            <div className="p-4 sm:p-5">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <TrendingUp className="h-6 w-6 text-green-400" aria-hidden="true" />
+                  <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8 text-green-400" aria-hidden="true" />
                 </div>
-                <div className="ml-5 w-0 flex-1">
+                <div className="ml-4 sm:ml-5 w-0 flex-1">
                   <dl>
                     <dt className="text-sm font-medium text-gray-500 truncate">
                       Total Income
                     </dt>
-                    <dd className="text-lg font-medium text-gray-900">
+                    <dd className="text-lg sm:text-xl font-medium text-gray-900 truncate">
                       {formatCurrency(summary.income.total)}
                     </dd>
                   </dl>
@@ -81,17 +81,17 @@ export default function DashboardPage() {
 
           {/* Total Expenses */}
           <div className="bg-white overflow-hidden shadow rounded-lg">
-            <div className="p-5">
+            <div className="p-4 sm:p-5">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <TrendingDown className="h-6 w-6 text-red-400" aria-hidden="true" />
+                  <TrendingDown className="h-6 w-6 sm:h-8 sm:w-8 text-red-400" aria-hidden="true" />
                 </div>
-                <div className="ml-5 w-0 flex-1">
+                <div className="ml-4 sm:ml-5 w-0 flex-1">
                   <dl>
                     <dt className="text-sm font-medium text-gray-500 truncate">
                       Total Expenses
                     </dt>
-                    <dd className="text-lg font-medium text-gray-900">
+                    <dd className="text-lg sm:text-xl font-medium text-gray-900 truncate">
                       {formatCurrency(summary.expense.total)}
                     </dd>
                   </dl>
@@ -102,17 +102,17 @@ export default function DashboardPage() {
 
           {/* Net Balance */}
           <div className="bg-white overflow-hidden shadow rounded-lg">
-            <div className="p-5">
+            <div className="p-4 sm:p-5">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <DollarSign className="h-6 w-6 text-blue-400" aria-hidden="true" />
+                  <DollarSign className="h-6 w-6 sm:h-8 sm:w-8 text-blue-400" aria-hidden="true" />
                 </div>
-                <div className="ml-5 w-0 flex-1">
+                <div className="ml-4 sm:ml-5 w-0 flex-1">
                   <dl>
                     <dt className="text-sm font-medium text-gray-500 truncate">
                       Net Balance
                     </dt>
-                    <dd className={`text-lg font-medium ${
+                    <dd className={`text-lg sm:text-xl font-medium truncate ${
                       summary.balance >= 0 ? 'text-green-600' : 'text-red-600'
                     }`}>
                       {formatCurrency(summary.balance)}
@@ -125,17 +125,17 @@ export default function DashboardPage() {
 
           {/* Total Transactions */}
           <div className="bg-white overflow-hidden shadow rounded-lg">
-            <div className="p-5">
+            <div className="p-4 sm:p-5">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <Activity className="h-6 w-6 text-indigo-400" aria-hidden="true" />
+                  <Activity className="h-6 w-6 sm:h-8 sm:w-8 text-indigo-400" aria-hidden="true" />
                 </div>
-                <div className="ml-5 w-0 flex-1">
+                <div className="ml-4 sm:ml-5 w-0 flex-1">
                   <dl>
                     <dt className="text-sm font-medium text-gray-500 truncate">
                       Total Transactions
                     </dt>
-                    <dd className="text-lg font-medium text-gray-900">
+                    <dd className="text-lg sm:text-xl font-medium text-gray-900">
                       {summary.income.count + summary.expense.count}
                     </dd>
                   </dl>
@@ -148,23 +148,23 @@ export default function DashboardPage() {
 
       {/* Quick Actions */}
       <div className="bg-white shadow rounded-lg">
-        <div className="px-4 py-5 sm:p-6">
+        <div className="px-4 py-4 sm:px-6 sm:py-5">
           <h3 className="text-lg leading-6 font-medium text-gray-900">
             Quick Actions
           </h3>
-          <div className="mt-5">
+          <div className="mt-4 sm:mt-5">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <a
                 href="/finance"
-                className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 rounded-lg border border-gray-200 hover:shadow-md transition-shadow"
+                className="relative group bg-white p-4 sm:p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 rounded-lg border border-gray-200 hover:shadow-md transition-shadow touch-manipulation"
               >
                 <div>
-                  <span className="rounded-lg inline-flex p-3 bg-green-50 text-green-700 ring-4 ring-white">
-                    <TrendingUp className="h-6 w-6" aria-hidden="true" />
+                  <span className="rounded-lg inline-flex p-2 sm:p-3 bg-green-50 text-green-700 ring-4 ring-white">
+                    <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
                   </span>
                 </div>
-                <div className="mt-8">
-                  <h3 className="text-lg font-medium">
+                <div className="mt-6 sm:mt-8">
+                  <h3 className="text-base sm:text-lg font-medium">
                     <span className="absolute inset-0" aria-hidden="true" />
                     Add Income
                   </h3>
@@ -176,15 +176,15 @@ export default function DashboardPage() {
 
               <a
                 href="/finance"
-                className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 rounded-lg border border-gray-200 hover:shadow-md transition-shadow"
+                className="relative group bg-white p-4 sm:p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 rounded-lg border border-gray-200 hover:shadow-md transition-shadow touch-manipulation"
               >
                 <div>
-                  <span className="rounded-lg inline-flex p-3 bg-red-50 text-red-700 ring-4 ring-white">
-                    <TrendingDown className="h-6 w-6" aria-hidden="true" />
+                  <span className="rounded-lg inline-flex p-2 sm:p-3 bg-red-50 text-red-700 ring-4 ring-white">
+                    <TrendingDown className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
                   </span>
                 </div>
-                <div className="mt-8">
-                  <h3 className="text-lg font-medium">
+                <div className="mt-6 sm:mt-8">
+                  <h3 className="text-base sm:text-lg font-medium">
                     <span className="absolute inset-0" aria-hidden="true" />
                     Add Expense
                   </h3>
@@ -196,15 +196,15 @@ export default function DashboardPage() {
 
               <a
                 href="/finance"
-                className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 rounded-lg border border-gray-200 hover:shadow-md transition-shadow"
+                className="relative group bg-white p-4 sm:p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 rounded-lg border border-gray-200 hover:shadow-md transition-shadow touch-manipulation sm:col-span-2 lg:col-span-1"
               >
                 <div>
-                  <span className="rounded-lg inline-flex p-3 bg-blue-50 text-blue-700 ring-4 ring-white">
-                    <Activity className="h-6 w-6" aria-hidden="true" />
+                  <span className="rounded-lg inline-flex p-2 sm:p-3 bg-blue-50 text-blue-700 ring-4 ring-white">
+                    <Activity className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
                   </span>
                 </div>
-                <div className="mt-8">
-                  <h3 className="text-lg font-medium">
+                <div className="mt-6 sm:mt-8">
+                  <h3 className="text-base sm:text-lg font-medium">
                     <span className="absolute inset-0" aria-hidden="true" />
                     View Reports
                   </h3>

@@ -27,26 +27,26 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-8 px-4 sm:py-12 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-6 sm:space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          <h2 className="mt-4 sm:mt-6 text-center text-2xl sm:text-3xl font-extrabold text-gray-900">
             Sign in to your account
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             Or{' '}
             <Link
               to="/register"
-              className="font-medium text-primary-600 hover:text-primary-500"
+              className="font-medium text-primary-600 hover:text-primary-500 touch-manipulation"
             >
               create a new account
             </Link>
           </p>
         </div>
         
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <form className="mt-6 sm:mt-8 space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded text-sm">
               {error}
             </div>
           )}
@@ -62,7 +62,7 @@ export default function LoginPage() {
                 type="email"
                 autoComplete="email"
                 required
-                className="form-input"
+                className="form-input text-base sm:text-sm"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -78,7 +78,7 @@ export default function LoginPage() {
                 type="password"
                 autoComplete="current-password"
                 required
-                className="form-input"
+                className="form-input text-base sm:text-sm"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -88,7 +88,7 @@ export default function LoginPage() {
           <div>
             <Button
               type="submit"
-              className="w-full"
+              className="w-full text-base sm:text-sm py-3 sm:py-2"
               loading={loading}
               disabled={!email || !password}
             >
