@@ -35,14 +35,14 @@ export default function Sidebar() {
   const { user, logout } = useAuth();
 
   return (
-    <div className="flex flex-col w-full h-full bg-gray-900">
+    <div className="flex flex-col w-full h-full bg-gray-900 min-h-screen lg:min-h-full">
       {/* Logo */}
-      <div className="flex items-center justify-center h-16 px-4 bg-gray-800">
+      <div className="flex items-center justify-center h-16 px-4 bg-gray-800 flex-shrink-0">
         <h1 className="text-lg sm:text-xl font-bold text-white truncate">Simple Dashboard</h1>
       </div>
 
       {/* User Info */}
-      <div className="flex items-center px-4 py-4 border-b border-gray-700">
+      <div className="flex items-center px-4 py-4 border-b border-gray-700 flex-shrink-0">
         <div className="flex-shrink-0">
           <div className="w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center">
             <span className="text-sm font-medium text-white">

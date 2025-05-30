@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import Sidebar from './Sidebar';
@@ -6,12 +6,26 @@ import Sidebar from './Sidebar';
 export default function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  // Prevent body scroll when sidebar is open on mobile
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.classList.add('sidebar-open');
+    } else {
+      document.body.classList.remove('sidebar-open');
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.classList.remove('sidebar-open');
+    };
+  }, [sidebarOpen]);
+
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Mobile sidebar overlay */}
-      <div className={`fixed inset-0 z-40 lg:hidden ${sidebarOpen ? 'block' : 'hidden'}`}>
+      <div className={`mobile-sidebar-overlay z-40 lg:hidden ${sidebarOpen ? 'block' : 'hidden'}`}>
         <div className="fixed inset-0 bg-gray-600 bg-opacity-75" onClick={() => setSidebarOpen(false)} />
-        <div className="relative flex w-full max-w-xs flex-1 flex-col bg-gray-900">
+        <div className="relative flex w-full max-w-xs flex-1 flex-col bg-gray-900 h-full">
           <div className="absolute top-0 right-0 -mr-12 pt-2">
             <button
               type="button"
@@ -22,7 +36,9 @@ export default function Layout() {
               <X className="h-6 w-6 text-white" aria-hidden="true" />
             </button>
           </div>
-          <Sidebar />
+          <div className="h-full">
+            <Sidebar />
+          </div>
         </div>
       </div>
 

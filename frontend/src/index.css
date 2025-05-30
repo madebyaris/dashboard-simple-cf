@@ -13,6 +13,11 @@
       min-height: 44px;
     }
   }
+  
+  /* Prevent body scroll when mobile sidebar is open */
+  body.sidebar-open {
+    overflow: hidden;
+  }
 }
 
 @layer components {
@@ -67,5 +72,16 @@
   /* Better mobile scrolling */
   .overflow-touch {
     -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Mobile sidebar overlay */
+  .mobile-sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile browsers */
   }
 } 
